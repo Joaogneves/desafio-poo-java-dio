@@ -4,37 +4,21 @@ package br.com.dio.desafio.dominio;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Mentoria {
-    private String titulo;
-    private String descricao;
+public class Mentoria extends Conteudo{
     private LocalDate data;
 
     public Mentoria(){}
 
-    public Mentoria(String titulo, String descricao, LocalDate data) {
-        this.titulo = titulo;
-        this.descricao = descricao;
+    public Mentoria(LocalDate data) {
+        super();
         this.data = data;
     }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
     public LocalDate getData() {
         return data;
     }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    @Override
+    public Double calcXP() {
+        return XP_PADRAO + 20d;
     }
 
     public void setData(LocalDate data) {
@@ -46,19 +30,19 @@ public class Mentoria {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Mentoria mentoria = (Mentoria) o;
-        return Objects.equals(titulo, mentoria.titulo) && Objects.equals(descricao, mentoria.descricao) && Objects.equals(data, mentoria.data);
+        return Objects.equals(data, mentoria.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(titulo, descricao, data);
+        return Objects.hash(data);
     }
 
     @Override
     public String toString() {
         return "Mentoria{" +
-                "titulo='" + titulo + '\'' +
-                ", descricao='" + descricao + '\'' +
+                "titulo='" + getTitulo() + '\'' +
+                ", descricao='" + getDescricao() + '\'' +
                 ", data=" + data +
                 '}';
     }

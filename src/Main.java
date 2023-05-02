@@ -6,10 +6,20 @@ import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        Curso curso1 = new Curso("Java", "Curso de java para iniciantes...", 8);
-        Curso curso2 = new Curso("Kotlin", "Curso de kotlin para iniciantes...", 8);
+        Curso curso1 = new Curso();
+        curso1.setTitulo("Curso de java");
+        curso1.setDescricao("curso java...");
+        curso1.setCargaHoraria(8);
 
-        Mentoria mentoria = new Mentoria("Mentoria de java", "mentoria java...", LocalDate.now());
+        Curso curso2 = new Curso();
+        curso2.setTitulo("Curso de Kotlin");
+        curso2.setDescricao("curso de kotlin...");
+        curso2.setCargaHoraria(8);
+
+        Mentoria mentoria = new Mentoria();
+        mentoria.setTitulo("Mentoria de java");
+        mentoria.setDescricao("mentoria java...");
+        mentoria.setData(LocalDate.now());
 
         System.out.println(curso1);
         System.out.println(curso2);
